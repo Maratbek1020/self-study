@@ -1,0 +1,16 @@
+import math
+def myequation(x):
+    return math.exp(1 / (4 * (1 + math.sqrt(x))))
+
+
+def iterate(x0, tol=1e-6, max_iter=10000):
+    for i in range(max_iter):
+        x1 = myequation(x0)
+        if abs(x1 - x0) < tol:
+            return x1
+        x0 = x1
+        print(x0)
+    return x1
+
+x_approx = iterate(1.0)
+print(f"Приближённое решение: x ≈ {x_approx:.6f}")
